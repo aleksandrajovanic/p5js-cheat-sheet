@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>p5.js Cheat Sheet</title>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="style.css" media="all">
+	<link rel="stylesheet" href="prism.css">
+
+</head>
+
+<body>
+
+	<!-- Include the menu, there's likely a more elegent way to do this -->
+	<script src="menu.js"></script>
+
+		<article id="cheat-sheet">
+			<div class="column">
+
+			<header>
+				<h1 id="title">p5.js</h1>
+				<p id="subtitle">подсетник <br> за почетнике!</p>
+			</header>
+
+			<section>
+				<h1>структура програма</h1>
+				<pre><code class="language-javaScript">//стартује се једном кад програм почне
+function setup(){
+  createCanvas(800,600); //ширина, висина у пикселима
+}
+
+//извршава се непрекидно после setup-а
+function draw(){
+  //извршавање петље
+}
+</code></pre>
+			</section>
+
+			<section>
+				<h1>системске променљиве</h1>
+				<pre><code class="language-javaScript">windowWidth / windowHeight
+//ширина / висина прозора 
+
+width / height
+//ширина / висина canvas елемента
+
+mouseX / mouseY
+//тренутна хоризонатална / вертикална позиција миша
+</code></pre>
+			</section>
+
+			<section>
+				<h1>невизуелна повратна информација</h1>
+				<pre><code class="language-javaScript">print();
+//штампа податке у конзолном прозору
+
+//дупла коса црта коментарише део кода (програм га прескаче)
+</code></pre>
+			</section>
+
+			<section>
+				<h1>боја</h1>
+				<pre><code class="language-javaScript">fill(120); //сива: 0-255
+fill(100,125,255); //r, g, b: 0-255
+fill(255, 0, 0, 50); //r, g, b, alpha
+fill('red'); //запис боје преко string-а
+fill('#ccc'); //хексадецимални запис са 3 цифре 
+fill('#222222'); //хексадецимални запис са 6 цифара 
+color(0, 0, 255); //p5.Color објекат
+</code></pre>
+			</section>
+
+
+	</div>
+	<!-- End First Col -->
+
+	<div class="column">
+
+		<section>
+			<h1>математика</h1>
+			<pre><code class="language-javaScript">+ - / *  //основни математички оператори
+
+random(low,high); //насумични број из опсега
+
+map(value, in1, in2, out1, out2);
+//мапирање вредности од улазног (input) до излазног (output) опсега   
+</code></pre>
+		</section>
+
+<!-- CONSIDERING ADDING THIS HERE AND MOVING MATH TO THE BOTTOM OF COL 1, THOGUHTS? -->
+<!-- <section>
+			<h1>дефинисање променљивих</h1>
+			<pre><code class="language-javaScript">//let и кључна реч дефинишу променљиву 
+//један знак једнакости =  додељује вредност променљивој 
+let variableName = 100;
+let myWords = "нека ниска карактера!";
+let randStorage = random(0,255); // додељивање вредности
+</code></pre>
+		</section>  -->
+
+		<section>
+			<h1>2d основни облици</h1>
+			<pre><code class="language-javaScript">line(x1, y1, x2, y2); //линија
+ellipse(x, y, width, height); //елипса, круг
+rect(x, y, width, height);  //правоугаоник, квадрат
+arc(x, y, width, height, start, stop); //лук
+
+beginShape();
+  vertex(x1, y1);
+  vertex(x2, y2);
+  vertex(x3, y3);
+  //додатне тачаке 
+endShape(CLOSE); //многоугао
+
+text("string", x, y, boxwidth, boxheight); //текст
+</code></pre>
+
+			<ul>
+				<li class="canvas-container">
+					<h2>координатна мрежа</h2>
+					<div id="grid-canvas"></div>
+				</li>
+				<li class="canvas-container">
+					<h2>line()</h2>
+					<div id="line-canvas"></div>
+				</li>
+				<li class="canvas-container">
+					<h2>ellipse()</h2>
+					<div id="ellipse-canvas"></div>
+				</li>
+				<li class="canvas-container">
+					<h2>rect()</h2>
+					<div id="rect-canvas"></div>
+				</li>
+				<li class="canvas-container">
+					<h2>arc()</h2>
+					<div id="arc-canvas"></div>
+				</li>
+				<li class="canvas-container">
+					<h2>vertex()</h2>
+					<div id="vertex-canvas"></div>
+				</li>
+			</ul>
+		</section>
+
+
+
+	</div>
+	<!-- End Second Col -->
+	<div class="column">
+
+		<section>
+			<h1>атрибути</h1>
+			<pre><code class="language-javaScript">background(color);
+//постави боју позадине
+
+fill(color);
+//постави боју унутрашности објекти
+
+noFill();
+//остави необојену унутрашњост
+
+stroke(color);
+//постави боју ивице објекта
+
+strokeWeight(weight);
+//постави дебљину ивице у пикселима
+
+noStroke();
+//не приказуј ивице
+
+ellipseMode(MODE);
+rectMode(MODE);
+//начин исцртавања објеката, могу бити и CENTER,CORNER
+
+textSize(pixels); //величина текста у пикселима
+</code></pre>
+		</section>
+
+		<section>
+			<h1>if/then грањање</h1>
+			<div class="logic">
+				<pre><code class="language-javaScript">if(test){
+  //инструкције
+}
+
+===  //јесте једнако
+!=  //није једнако
+>   //веће од 
+<   //мање од
+>=  //веће или једнако
+<=  //мање или једнако
+
+</code></pre>
+<div id="ifelse-canvas"></div>
+
+		</div>
+
+		</section>
+
+		<footer>
+			Compiled by Ben Moren <a href="http://benmoren.com">http://benmoren.com</a> CC-BY-SA-NC-4.0
+			<br>
+			Translation by Aleksandra Jovanic
+		</footer>
+
+	</div>
+
+	</article>
+
+
+	<script type="text/javascript">
+		// Terms to translate for diagrams
+		var terms = {
+			"width": "ширина",
+			"height": "висина",
+			"stop": "старт",
+			"start": "старт",
+			"true": "тачно",
+			"false": "нетачно",
+			"continue_program": "настави програм",
+			"test": "test",
+			"statements": "инструкције"
+		};
+	</script>
+
+	<script src="prism.js"></script>
+	<script src="p5.min.js"></script>
+	<script src="diagram.js"></script>
+</body>
+
+</html>
