@@ -24,6 +24,8 @@ This is a [web based cheat sheet](https://bmoren.github.io/p5js-cheat-sheet/) to
   + Translation by: [Felipe Turcheti](https://github.com/fturcheti)
 + [Chinese](https://bmoren.github.io/p5js-cheat-sheet/zh.html)
   + Translation by: [Drafffffff](https://github.com/draffffff)
++ [Serbian](https://bmoren.github.io/p5js-cheat-sheet/sr.html)
+  + Translation by: [aleksandrajovanic](https://github.com/aleksandrajovanic)
 
 There are also pre-compiled PDF's available within this repository for each translation for folks who would like to get off-line ASAP, or who would like an immediate copy of a cheat sheet.
 
